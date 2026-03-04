@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/layoutSettingsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@android:color/white"
+            android:elevation="6dp">
+
+            <!-- 상단 제목 + 닫기 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvSettingsTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="설정"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSettingsClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✕"
+                    android:textSize="18sp"
+                    android:padding="6dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#E5E7EB" />
+
+            <!-- 카테고리 관리 -->
+            <TextView
+                android:id="@+id/tvCategoryManageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="카테고리 관리"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="선택한 카테고리만 기록 창에 표시됩니다."
+                android:textSize="12sp" />
+
+            <!-- 기본 카테고리 -->
+            <LinearLayout
+                android:id="@+id/layoutCategoryChips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <!-- 운동/독서 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button
+                        android:id="@+id/btnChipExercise"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:text="🏃 운동"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btnChipReading"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:text="📘 독서"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <!-- 공부/요리 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button
+                        android:id="@+id/btnChipStudy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:text="📚 공부"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btnChipCooking"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:text="🍳 요리"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <!-- 취미/업무 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnChipHobby"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:text="🎨 취미"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btnChipWork"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:text="💼 업무"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 사용자 정의 카테고리 -->
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/layoutExtraCategoryChips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="4dp"
+                app:flexWrap="wrap"
+                app:flexDirection="row"
+                app:justifyContent="flex_start" />
+
+            <!-- 새 카테고리 추가 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <EditText
+                    android:id="@+id/etNewCategoryName"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/edit_text"
+                    android:hint="새 카테고리 이름"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnAddCategory"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:text="+ 추가"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#374151" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#E5E7EB" />
+
+            <!-- 색상 설정 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="기록 날짜 표시 색상"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/colorSelectorContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <View
+                    android:id="@+id/colorOption1"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="#BDE0FE"
+                    android:layout_marginEnd="8dp" />
+
+                <View
+                    android:id="@+id/colorOption2"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="#FFD6A5"
+                    android:layout_marginEnd="8dp" />
+
+                <View
+                    android:id="@+id/colorOption3"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="#C4F8C1"
+                    android:layout_marginEnd="8dp" />
+
+                <View
+                    android:id="@+id/colorOption4"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="#FFADAD" />
+            </LinearLayout>
+
+            <!-- 🔐 PIN 잠금 버튼 -->
+            <Button
+                android:id="@+id/btnSetPin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="PIN 잠금 설정"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#6C5CE7" />
+
+            <!-- 🔒 지문 잠금 버튼 (새로 추가됨) -->
+
+            <!-- 로그아웃 -->
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="로그아웃"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#DC2626" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

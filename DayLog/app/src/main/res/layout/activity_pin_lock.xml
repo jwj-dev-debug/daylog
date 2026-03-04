@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F5FF"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <!-- 카드 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:background="@android:color/white"
+        android:elevation="6dp"
+        android:clipToPadding="false"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="#FFFFFF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PIN 입력"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etPinInput"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:drawable/edit_text"
+            android:inputType="numberPassword"
+            android:hint="PIN을 입력하세요"
+            android:textSize="16sp"
+            android:padding="12dp" />
+
+        <!-- 확인 버튼 -->
+        <Button
+            android:id="@+id/btnEnter"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:text="확인"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#6C5CE7"
+            android:background="@drawable/rounded_button" />
+
+        <!-- 지문 버튼 -->
+        <Button
+            android:id="@+id/btnUseFingerprint"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="지문으로 해제"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#7F77FF"
+            android:background="@drawable/rounded_button"
+            android:visibility="visible" />
+
+        <!-- PIN 재설정 -->
+        <TextView
+            android:id="@+id/btnForgotPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PIN을 잊으셨나요?"
+            android:textSize="14sp"
+            android:textColor="#6C5CE7"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

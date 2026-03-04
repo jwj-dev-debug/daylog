@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F4F6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 상단 앱바 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="8dp">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/tvAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="DayLog"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 🔹 통계 버튼 -->
+            <TextView
+                android:id="@+id/tvStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="통계"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp" />
+
+            <!-- 🔹 설정 버튼 -->
+            <TextView
+                android:id="@+id/tvSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="설정"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp" />
+
+        </LinearLayout>
+
+        <!-- 🔹 사용자 인사 문구 -->
+        <TextView
+            android:id="@+id/tvUserGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="안녕하세요!"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- 월 카드 -->
+        <LinearLayout
+            android:id="@+id/layoutMonthCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal"
+            android:padding="24dp"
+            android:elevation="2dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvPrevMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&lt;"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tvMonthTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="2025년 11월"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNextMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&gt;"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <!-- 캘린더 카드 -->
+        <LinearLayout
+            android:id="@+id/layoutCalendarCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:elevation="2dp">
+
+            <!-- 요일 헤더 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="일"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="월"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="화"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="수"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="목"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="금"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="토"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 6주 × 7일 날짜 그리드 -->
+            <GridLayout
+                android:id="@+id/gridCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:columnCount="7"
+                android:rowCount="6">
+
+                <!-- day1 ~ day42 -->
+                <!-- 1~7 -->
+                <TextView android:id="@+id/day1" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day2" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day3" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day4" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day5" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day6" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day7" style="@style/DayCell" android:text="" />
+
+                <!-- 8~14 -->
+                <TextView android:id="@+id/day8" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day9" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day10" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day11" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day12" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day13" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day14" style="@style/DayCell" android:text="" />
+
+                <!-- 15~21 -->
+                <TextView android:id="@+id/day15" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day16" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day17" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day18" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day19" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day20" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day21" style="@style/DayCell" android:text="" />
+
+                <!-- 22~28 -->
+                <TextView android:id="@+id/day22" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day23" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day24" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day25" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day26" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day27" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day28" style="@style/DayCell" android:text="" />
+
+                <!-- 29~35 -->
+                <TextView android:id="@+id/day29" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day30" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day31" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day32" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day33" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day34" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day35" style="@style/DayCell" android:text="" />
+
+                <!-- 36~42 -->
+                <TextView android:id="@+id/day36" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day37" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day38" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day39" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day40" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day41" style="@style/DayCell" android:text="" />
+                <TextView android:id="@+id/day42" style="@style/DayCell" android:text="" />
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
